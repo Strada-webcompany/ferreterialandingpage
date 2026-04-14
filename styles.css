@@ -244,6 +244,52 @@ h2 {
 
 /* Componentes de las Secciones */
 
+/* Hero con imagen de fondo */
+#hero {
+    background: url('images/hero.png') center center/cover no-repeat;
+    position: relative;
+}
+#hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(11,12,16,0.5) 0%, rgba(11,12,16,0.95) 100%);
+    z-index: 1; /* sobreescribe el fondo base, el .content tiene z-index: 2 */
+}
+
+/* Split Layout para Categorías */
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.split-text {
+    flex: 1;
+}
+.split-image {
+    flex: 1;
+}
+.rounded-image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    height: 400px;
+}
+.shadow-img {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Map Containers */
+.map-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.map-rounded iframe {
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
 /* Mesh Overlay effect for premium look */
 .overlay-mesh {
     position: absolute;
@@ -415,6 +461,8 @@ h2 {
     h2 { font-size: 2.8rem; }
     .massive-text { font-size: 3.2rem; }
     .desktop-only { display: none; }
+    .split-layout { flex-direction: column; gap: 1.5rem; }
+    .rounded-image { height: 250px; }
 }
 
 @media (max-width: 600px) {
