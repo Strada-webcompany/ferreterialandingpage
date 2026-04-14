@@ -1,0 +1,450 @@
+/* Variables Globales / Paleta de Colores Exclusiva */
+:root {
+    --primary-red: #D90429;
+    --primary-red-hover: #EF233C;
+    --dark-bg: #0B0C10;     /* Negro muy oscuro tipo premium */
+    --black-bg: #000000;
+    --dark-gray: #1F2833;   /* Gris moderno oscuro */
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+    --text-light: #F8F9FA;
+    --text-dark: #121212;
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #1EBE55;
+    
+    /* Variables de UI */
+    --transition-speed: 0.4s;
+    --border-radius: 12px;
+}
+
+/* Reset y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-light);
+    background-color: var(--black-bg);
+    overflow: hidden; /* El scroll lo maneja el container */
+}
+
+/* Scroll Snap Container (Experiencia 100vh) */
+.scroll-container {
+    height: 100vh;
+    height: 100dvh; /* Para navegadores moviles modernos */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    /* Ocultar barra de scroll para limpiar diseño */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Secciones Full Screen */
+.screen {
+    height: 100vh;
+    height: 100dvh;
+    width: 100vw;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenedor interno limitando ancho */
+.content {
+    max-width: 1100px;
+    width: 100%;
+    z-index: 2;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.center-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fondos Solid */
+.dark-bg { background-color: var(--dark-bg); }
+.black-bg { background-color: var(--black-bg); }
+.red-bg { background-color: var(--primary-red); }
+.white-bg { background-color: var(--white); }
+.light-gray-bg { background-color: var(--light-gray); }
+
+.text-dark { color: var(--text-dark); }
+
+/* Tipografía */
+h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+}
+
+.massive-text {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    opacity: 0.8;
+    max-width: 600px;
+}
+
+.center-content .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Utilidades Especiales */
+.mt-2 { margin-top: 1rem; }
+.mt-4 { margin-top: 2.5rem; }
+.mb-4 { margin-bottom: 2.5rem; }
+
+.highlight { color: var(--primary-red); }
+.highlight-red { color: var(--primary-red); }
+.desktop-only { display: block; }
+
+/* Botones Principales */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 14px 0 rgba(217, 4, 41, 0.39);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-red-hover);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(217, 4, 41, 0.45);
+}
+
+.btn-whatsapp-massive {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whatsapp-color);
+    color: var(--white);
+    padding: 1.5rem 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-massive .btn-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.btn-whatsapp-massive:hover {
+    background-color: var(--whatsapp-hover);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+}
+
+/* Botón Flotante Global WhatsApp */
+.wa-float {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 65px;
+    height: 65px;
+    background-color: var(--whatsapp-color);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+    z-index: 9999;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wa-float svg {
+    width: 35px;
+    height: 35px;
+}
+
+.wa-float:hover {
+    transform: scale(1.15) rotate(8deg);
+    background-color: var(--whatsapp-hover);
+}
+
+/* Animaciones y Clases para Observer (Storytelling) */
+.fade-up, .fade-in, .slide-up, .zoom-in {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.fade-up { transform: translateY(50px); }
+.slide-up { transform: translateY(80px); }
+.zoom-in { transform: scale(0.7); }
+
+.animate-on-scroll.is-visible .fade-up,
+.animate-on-scroll.is-visible .fade-in,
+.animate-on-scroll.is-visible .slide-up,
+.animate-on-scroll.is-visible .zoom-in {
+    animation: smoothAppear 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Delays para efecto cascada */
+.delay-1 { animation-delay: 0.15s !important; }
+.delay-2 { animation-delay: 0.30s !important; }
+.delay-3 { animation-delay: 0.45s !important; }
+.delay-4 { animation-delay: 0.60s !important; }
+.delay-5 { animation-delay: 0.75s !important; }
+.delay-6 { animation-delay: 0.90s !important; }
+
+@keyframes smoothAppear {
+    0% { opacity: 0; }
+    100% { opacity: 1; transform: translate(0) scale(1); }
+}
+
+/* Componentes de las Secciones */
+
+/* Mesh Overlay effect for premium look */
+.overlay-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.04) 2px, transparent 2px),
+        radial-gradient(rgba(255, 255, 255, 0.04) 2px, transparent 2px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Features (Tags del inicio) */
+.features-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.feature-badge {
+    background: rgba(217, 4, 41, 0.08);
+    color: var(--primary-red);
+    padding: 0.8rem 1.6rem;
+    border-radius: 100px;
+    font-weight: 700;
+    border: 1px solid rgba(217, 4, 41, 0.15);
+    font-size: 1.1rem;
+}
+
+/* Grid de Beneficios */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    background: var(--dark-gray);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease;
+}
+
+.benefit-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(217, 4, 41, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.benefit-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.benefit-card p {
+    color: #A0A0A0;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Categorias (Tags grandes) */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tag {
+    background: var(--dark-bg);
+    color: var(--white);
+    padding: 1.2rem 2.2rem;
+    border-radius: 100px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: default;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.tag:hover {
+    background: var(--primary-red);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2);
+}
+
+/* Testimonios */
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.testimonial::before {
+    content: '"';
+    font-size: 7rem;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    color: rgba(217, 4, 41, 0.1);
+    line-height: 1;
+    font-family: Georgia, serif;
+    pointer-events: none;
+}
+
+.testimonial p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    color: #444;
+}
+
+.author-info strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.author-info small {
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Animación de pulso latente para Cierre */
+.pulse-container {
+    display: inline-block;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.08); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.08); }
+  70% { transform: scale(1); }
+}
+
+.heartbeat-active {
+    animation: heartbeat 2s ease-in-out infinite both;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 900px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.8rem; }
+    .massive-text { font-size: 3.2rem; }
+    .desktop-only { display: none; }
+}
+
+@media (max-width: 600px) {
+    .content { padding: 0 1.5rem; text-align: left; }
+    .center-content { text-align: left; align-items: flex-start; }
+    
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    .massive-text { font-size: 2.5rem; }
+    
+    .subtitle { font-size: 1.1rem; }
+    
+    .feature-badge { width: 100%; display: block; text-align: center; }
+    .tag { font-size: 1rem; padding: 1rem 1.5rem; flex-grow: 1; text-align: center; }
+    
+    .btn-whatsapp-massive { 
+        padding: 1.2rem 2rem; 
+        font-size: 1.2rem; 
+        width: 100%; 
+        justify-content: center;
+    }
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Achicar boton flotante en movil */
+    .wa-float { width: 55px; height: 55px; bottom: 1.5rem; right: 1.5rem; }
+    .wa-float svg { width: 30px; height: 30px; }
+    
+    .benefits-grid { gap: 1rem; }
+    .testimonial { padding: 2rem 1.5rem; }
+}
